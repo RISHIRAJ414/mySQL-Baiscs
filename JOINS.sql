@@ -56,5 +56,42 @@ left join   employee_salary as sal
 	on dem.employee_id = sal.employee_id; 
  # Try to predict the outcome of above 4 queries(All possible cases of Left join and Right join). 
 
+-- SELF JOIN --
+-- A table is joined with itself. Used when comparing rows within the same table.
+-- Common Use Cases for Self-Joins
+-- 1.Hierarchical Data
+-- Scenario: Represent relationships like manager-employee, parent-child, or category-subcategory.
+-- 2. Finding Duplicates
+-- Scenario: Identify duplicate entries in a table based on specific columns.
+-- 3. Comparing Rows
+-- Scenario: Compare rows to find mismatches or relationships.
+
+select emp1.employee_id as em1_ID ,
+emp1.first_name as em1_First_Name,
+emp1.last_name as em1_Last_Name ,
+emp2.employee_id as em2_PartnerID ,
+emp2.first_name as em2_PartnerFirst_Name ,
+emp2.last_name as em2_PartnerLast_Name 
+from employee_salary as emp1
+join employee_salary as emp2
+	on emp1.employee_id  = emp2.employee_id +1;
+    
+-- Joining Multiple Tables Together (Compound Join or Complex Join)    
+    
+select *
+from employee_salary as sal
+inner join  employee_demographics as dem 
+	on dem.employee_id = sal.employee_id
+inner join parks_departments as pd
+	on sal.employee_id=pd.department_id;
+#Here since employee demographics doo not have any common column with parks_department but we still joins them because :
+-- employee_demographics entitles 'employee_id' which is common with 'employee_id' column in employee_salary table AND
+-- employee_salary entitles 'salary' which is common with 'salary' colummn in the parks_department table. 
+-- AND THIS IS HOW WE JOINED MULTIPLE TABLES. 
+select *
+from parks_departments;
+
+
+
 
 
