@@ -43,7 +43,7 @@ right join  employee_demographics as dem
 select *
 from employee_demographics as dem
 right join   employee_salary as sal
-	on dem.employee_id = sal.employee_id; 
+	on  sal.employee_id=  dem.employee_id;
 
 select *
 from employee_salary as sal
