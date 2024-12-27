@@ -15,7 +15,13 @@ select *
 from employee_demographics
 inner join employee_salary
 	on employee_demographics.employee_id = employee_salary.employee_id;
+    
+select first_name,last_name,occupation,department_name
+from employee_salary as sal 
+inner join parks_departments as dep
+	on sal.dept_id = dep.department_id;
 
+-- ALIAS --
 select *
 from employee_demographics as dem #Here we have used Alias in order to  make it easier to reference.
 inner join employee_salary as sal #Here we have used Alias in order to  make it easier to reference.
