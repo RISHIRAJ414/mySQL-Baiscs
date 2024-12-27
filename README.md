@@ -1,1 +1,1 @@
-# mySQL-Baiscs
+# mySQL-Quries+Notes
